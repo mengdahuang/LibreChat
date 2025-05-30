@@ -1,0 +1,16 @@
+version: '3.4'
+
+# 使用此文件禁用分叉功能
+# 使用方法: docker-compose -f docker-compose.yml -f docker-compose.fork-disabled.yml up -d
+
+services:
+  api:
+    environment:
+      # 环境变量标记分叉功能已禁用
+      - FORK_DISABLED=true
+      - REACT_APP_FORK_DISABLED=true
+    volumes:
+      # 挂载禁用分叉功能的CSS文件
+      - ./custom/disable-fork.css:/app/client/public/disable-fork.css:ro
+      # 挂载修改后的index.html（如果需要）
+      - ./custom/index.html:/app/client/public/index.html:ro 

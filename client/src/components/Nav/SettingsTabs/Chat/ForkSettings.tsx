@@ -6,6 +6,11 @@ import { useLocalize } from '~/hooks';
 import store from '~/store';
 
 export const ForkSettings = () => {
+  // 默认关闭分叉功能 - 返回null隐藏所有分叉设置
+  return null;
+  
+  // 原有代码被注释掉
+  /*
   const localize = useLocalize();
   const [forkSetting, setForkSetting] = useRecoilState(store.forkSetting);
   const [splitAtTarget, setSplitAtTarget] = useRecoilState(store.splitAtTarget);
@@ -66,4 +71,5 @@ export const ForkSettings = () => {
       </div>
     </>
   );
+  */
 };

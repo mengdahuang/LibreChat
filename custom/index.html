@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="theme-color" content="#171717" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="LibreChat - An open source chat application with support for multiple AI models" />
+  <title>LibreChat</title>
+  <link rel="shortcut icon" href="#" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-180x180.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
+  
+  <!-- 加载禁用分叉功能的CSS -->
+  <link rel="stylesheet" href="/disable-fork.css">
+  
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #171717;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    /* 确保分叉功能被禁用的额外样式 */
+    [aria-label*="Fork"], 
+    [aria-label*="分叉"],
+    button:has(svg.lucide-git-fork),
+    svg.lucide-git-fork {
+      display: none !important;
+    }
+    
+    /* 隐藏分叉按钮的所有可能选择器 */
+    button[aria-label*="Fork"],
+    button[aria-label*="分叉"],
+    button[aria-label*="Duplica"],
+    button[title*="Fork"],
+    .fork-button,
+    [data-testid*="fork"] {
+      display: none !important;
+    }
+  </style>
+  
+  <script>
+    const theme = localStorage.getItem('color-theme');
+    const loadingContainerStyle = document.createElement('style');
+    let backgroundColor;
+
+    if (theme === 'dark') {
+      backgroundColor = '#0d0d0d';
+    } else if (theme === 'light') {
+      backgroundColor = '#ffffff';
+    } else if (theme === 'system') {
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      backgroundColor = prefersDarkScheme ? '#0d0d0d' : '#ffffff';
+    } else {
+      backgroundColor = '#ffffff';
+    }
+
+    loadingContainerStyle.innerHTML = `
+      #loading-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: ${backgroundColor};
+      }
+    `;
+    document.head.appendChild(loadingContainerStyle);
+  </script>
+  
+  <!-- 原始的资源文件引用 -->
+  <script type="module" crossorigin src="/assets/react-interactions.B_gD3EFZ.js"></script>
+  <script type="module" crossorigin src="/assets/markdown_highlight.YFvJ8PVJ.js"></script>
+  <script type="module" crossorigin src="/assets/validation.PQVr34Q_.js"></script>
+  <script type="module" crossorigin src="/assets/math-katex.iIKN0cd0.js"></script>
+  <script type="module" crossorigin src="/assets/vendor.BP8KlxEH.js"></script>
+  <script type="module" crossorigin src="/assets/i18n.JiUcSf7v.js"></script>
+  <script type="module" crossorigin src="/assets/locales.onrm6Csg.js"></script>
+  <script type="module" crossorigin src="/assets/routing.Db1V-jNE.js"></script>
+  <script type="module" crossorigin src="/assets/radix-ui.D419pRJN.js"></script>
+  <script type="module" crossorigin src="/assets/tanstack-vendor.CwtoHBn3.js"></script>
+  <script type="module" crossorigin src="/assets/http-client.C4xwgUv2.js"></script>
+  <script type="module" crossorigin src="/assets/date-utils.j-oxXFG2.js"></script>
+  <script type="module" crossorigin src="/assets/utilities.DczjhRIE.js"></script>
+  <script type="module" crossorigin src="/assets/forms.Cj0rAOoa.js"></script>
+  <script type="module" crossorigin src="/assets/security-ui.ksUxNvkD.js"></script>
+  <script type="module" crossorigin src="/assets/framer-motion.DBD_fkry.js"></script>
+  <script type="module" crossorigin src="/assets/advanced-inputs.BAD6zCP7.js"></script>
+  <script type="module" crossorigin src="/assets/animations.CTaDwaCf.js"></script>
+  <script type="module" crossorigin src="/assets/markdown-processing.CKVmVBUS.js"></script>
+  <script type="module" crossorigin src="/assets/avatars.DlTYoDdb.js"></script>
+  <script type="module" crossorigin src="/assets/headlessui.DOo9KaGU.js"></script>
+  <script type="module" crossorigin src="/assets/virtualization.S4fpIa_9.js"></script>
+  <script type="module" crossorigin src="/assets/codemirror-state.Pf71Wo5N.js"></script>
+  <script type="module" crossorigin src="/assets/codemirror-view.r5qJHPT3.js"></script>
+  <script type="module" crossorigin src="/assets/codemirror-language.BfqxgPR3.js"></script>
+  <script type="module" crossorigin src="/assets/codemirror-core.CGN8JuD1.js"></script>
+  <script type="module" crossorigin src="/assets/sandpack.Co-QJOB3.js"></script>
+  <script type="module" crossorigin src="/assets/index.Dve6dwj6.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/math-katex.CihyawKy.css">
+  <link rel="stylesheet" crossorigin href="/assets/index.ChbhBgE2.css">
+  <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+    <div id="loading-container"></div>
+  </div>
+  
+  <script>
+    // 分叉功能禁用脚本
+    console.log('Fork functionality disabled - DOM loaded');
+    
+    // 立即隐藏分叉按钮的函数
+    function hideForkElements() {
+      const forkSelectors = [
+        'button[aria-label*="Fork"]',
+        'button[aria-label*="分叉"]', 
+        'button[aria-label*="Duplica"]',
+        'button[title*="Fork"]',
+        '.fork-button',
+        '[data-testid*="fork"]',
+        'svg.lucide-git-fork'
+      ];
+      
+      forkSelectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => {
+          el.style.display = 'none';
+          console.log('Hidden fork element:', el);
+        });
+      });
+    }
+    
+    // DOM加载完成后立即执行
+    document.addEventListener('DOMContentLoaded', function() {
+      hideForkElements();
+      
+      // 监听DOM变化，动态隐藏新出现的分叉按钮
+      const observer = new MutationObserver(function(mutations) {
+        let shouldCheck = false;
+        mutations.forEach(function(mutation) {
+          if (mutation.addedNodes.length > 0) {
+            shouldCheck = true;
+          }
+        });
+        
+        if (shouldCheck) {
+          hideForkElements();
+        }
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    });
+    
+    // 定期检查（备用方案）
+    setInterval(hideForkElements, 2000);
+  </script>
+</body>
+</html> 

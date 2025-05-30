@@ -1,0 +1,108 @@
+/* 禁用分叉功能的CSS样式 - 增强版 */
+
+/* 隐藏分叉按钮 - 基础选择器 */
+button[aria-label*="Fork"],
+button[aria-label*="分叉"],
+button[aria-label*="Duplica"],
+button[aria-label*="fork"],
+button[title*="Fork"],
+button[title*="fork"],
+.fork-button,
+[data-testid*="fork"],
+[data-testid*="Fork"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 隐藏Git分叉图标 */
+svg.lucide-git-fork,
+svg[data-lucide="git-fork"],
+.lucide-git-fork {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 隐藏包含分叉图标的按钮 */
+button:has(svg.lucide-git-fork),
+button:has(svg[data-lucide="git-fork"]),
+button:has(.lucide-git-fork) {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 隐藏分叉相关的设置选项 */
+[data-testid="rememberDefaultFork"],
+[data-testid="splitAtTarget"],
+[data-testid="fork-setting-dropdown"],
+[data-testid*="fork-setting"],
+[data-testid*="Fork-setting"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 隐藏包含分叉设置的整个容器 */
+.fork-settings-container,
+div:has([data-testid="rememberDefaultFork"]),
+div:has([data-testid="splitAtTarget"]),
+div:has([data-testid*="fork"]) {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 隐藏分叉相关的弹窗和模态框 */
+[role="dialog"]:has([data-testid*="fork"]),
+[role="dialog"]:has(button[aria-label*="Fork"]),
+.fork-popover,
+.fork-modal,
+.fork-dialog {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 隐藏可能的分叉菜单项 */
+[role="menuitem"]:has(svg.lucide-git-fork),
+[role="menuitem"][aria-label*="Fork"],
+[role="menuitem"][aria-label*="分叉"],
+li:has(svg.lucide-git-fork),
+li:has(button[aria-label*="Fork"]) {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 通用的分叉相关文本隐藏 */
+*[class*="fork" i],
+*[id*="fork" i] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 特殊情况：隐藏可能动态生成的分叉按钮 */
+button[class*="hover-button"]:has(svg.lucide-git-fork),
+.hover-button:has(svg.lucide-git-fork),
+.message-button:has(svg.lucide-git-fork) {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 确保分叉功能在所有状态下都被隐藏 */
+button[aria-label*="Fork"]:hover,
+button[aria-label*="Fork"]:focus,
+button[aria-label*="Fork"]:active,
+button[aria-label*="分叉"]:hover,
+button[aria-label*="分叉"]:focus,
+button[aria-label*="分叉"]:active {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* 针对可能的分叉快捷键提示 */
+[data-tooltip*="Fork"],
+[data-tooltip*="分叉"],
+[title*="Fork"],
+[title*="分叉"] {
+  display: none !important;
+  visibility: hidden !important;
+} 
